@@ -15,21 +15,28 @@ def merge(arrA, arrB):
             merged_arr.insert(index_incrementer, arrA[little_a])
             little_a += 1
             index_incrementer += 1
+            merged_arr.pop(index_incrementer)
         else:
             merged_arr.insert(index_incrementer, arrB[little_b])
             little_b += 1
             index_incrementer += 1
+            merged_arr.pop(index_incrementer)
     while little_b < len(arrB):
         merged_arr.insert(index_incrementer, arrB[little_b])
         little_b += 1
         index_incrementer += 1
+        merged_arr.pop(index_incrementer)
     while little_a < len(arrA):
         merged_arr.insert(index_incrementer, arrA[little_a])
         little_a += 1
         index_incrementer += 1
+        merged_arr.pop(index_incrementer)
 
     return merged_arr
 
+a = [1, 4, 7]
+b = [2, 3, 8, 9]
+print(merge(a, b))
 
     # I was super close with below
     # as long as the length of arrA AND arrB is more than 0, I want to keep doing this:
@@ -61,9 +68,7 @@ def merge(arrA, arrB):
 
     # return merged_arr
 
-a = [1, 4, 7]
-b = [2, 3, 8, 9]
-print(merge(a, b))
+
 
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
