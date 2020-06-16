@@ -74,6 +74,18 @@ print(merge(a, b))
 def merge_sort(arr):
     # Your code here
 
+    # ----------------DIVIDE------------------
+    # base case: when the length of the array is greater than 1
+    # while len(arr) > 1:  <-------- Almost had it... just was running into infinite loop with while instead of if... I get confused on when to use those...
+    if len(arr) > 1:
+    # approaching the base case: we need to divide the single array into 2 arrays, which is where we can do that recursively. once there are 2 arrays, each of those arrays will go back through this function and break up/get called until there are only arrays with lengths of 1. 
+        right_side = merge_sort(arr[len(arr) // 2:])
+        left_side = merge_sort(arr[:len(arr) // 2])
+
+    # -------------------CONQUER------------------ 
+    # Base case (same as in the merge helper function above, we're just using it in here)
+    # Once there are arrays that are lengths of 1. That's where we can begin to merge them all back together
+        arr = merge(right_side, left_side)
 
     return arr
 
